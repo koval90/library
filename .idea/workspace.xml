@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96569ae2-26e3-4c74-92b5-df53bee66911" name="Changes" comment="Library V0.3">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/javastat/library/model/Book.java" afterDir="false" />
+    <list default="true" id="96569ae2-26e3-4c74-92b5-df53bee66911" name="Changes" comment="Library V0.7">
+      <change afterPath="$PROJECT_DIR$/src/pl/javastat/library/app/LibraryApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/javastat/library/app/LibraryControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/javastat/library/io/DataReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/javastat/library/app/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/javastat/library/app/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/javastat/library/model/Library.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +34,13 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +57,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672608171585</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Library V0.7">
+      <created>1673034471645</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673034471645</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -73,6 +80,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Library V0.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Library V0.3" />
+    <MESSAGE value="Library V0.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Library V0.7" />
   </component>
 </project>

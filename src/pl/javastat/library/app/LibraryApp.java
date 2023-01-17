@@ -1,7 +1,7 @@
 package pl.javastat.library.app;
 
 public class LibraryApp {
-    private static final String APP_NAME = "Bibliotek v1.1";
+    private static final String APP_NAME = "Bibliotek v1.4";
     public static void main(String[] args) {
 
         System.out.println(APP_NAME);

@@ -1,4 +1,4 @@
-package pl.javastat.library.model;
+package pl.javastart.library.model;
 
 import java.util.Objects;
 
@@ -12,6 +12,18 @@ public class Magazine extends Publication{
         this.month = month;
         this.day = day;
         this.language = language;
+    }
+    public static final String TYPE = "Magazyn";
+
+    @Override
+    public String toCsv() {
+        return (TYPE + ";") +
+                getTitle() + ";" +
+                getPublisher() + ";" +
+                getYear() + ";" +
+                month + ";" +
+                day + ";" +
+                language + "";
     }
 
     @Override

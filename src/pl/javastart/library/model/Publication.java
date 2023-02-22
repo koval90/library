@@ -1,8 +1,9 @@
-package pl.javastat.library.model;
+package pl.javastart.library.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Publication {
+public abstract class Publication implements Serializable {
     private String title;
     private String publisher;
     private int year;
@@ -12,6 +13,7 @@ public class Publication {
         this.publisher = publisher;
         this.year = year;
     }
+    public abstract String toCsv();
 
     int getYear() {
         return year;

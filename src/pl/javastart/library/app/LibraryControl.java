@@ -2,17 +2,17 @@ package pl.javastart.library.app;
 
 import pl.javastart.library.exception.DataExportException;
 import pl.javastart.library.exception.DataImportException;
+import pl.javastart.library.exception.UserAlreadyExistsException;
 import pl.javastart.library.io.ConsolePrinter;
 import pl.javastart.library.io.DataReader;
 import pl.javastart.library.io.file.FileManager;
 import pl.javastart.library.io.file.FileManagerBuilder;
-import pl.javastart.library.model.Book;
-import pl.javastart.library.model.Magazine;
-import pl.javastart.library.model.Library;
-import pl.javastart.library.model.Publication;
+import pl.javastart.library.model.*;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import pl.javastart.library.exception.NoSuchOptionException;
+import pl.javastart.library.model.comparator.AlphabeticalTitleComparator;
 
 public class LibraryControl {
     private ConsolePrinter printer = new ConsolePrinter();
@@ -52,6 +52,17 @@ public class LibraryControl {
                 case PRINT_MAGAZINES:
                     printMagazines();
                     break;
+                case DELETE_BOOK:
+                    deleteBook();
+                    break;
+                case DELETE_MAGAZINE:
+                    deleteMagazome();
+                    break;
+                case ADD_USER:
+                    addUser();
+                    break;
+                case PRINT_USERS:
+                    printUsers();
                 case EXIT:
                     exit();
                     break;
@@ -97,8 +108,7 @@ public class LibraryControl {
     }
 
     private void printBooks(){
-        Publication[] publications = library.getPublications();
-        printer.printBooks(publications);
+        printer.printBooks(library.getPublications().values());
     }
 
     private void addMagazine(){
@@ -113,8 +123,49 @@ public class LibraryControl {
     }
 
     private void printMagazines(){
-        Publication[] publications = library.getPublications();
-        printer.printMagazines(publications);
+        printer.printMagazines(library.getPublications().values());
+    }
+
+    private void addUser(){
+        LibraryUser libraryUser = dataReader.createLibraryUser();
+        try {
+            library.addUser(libraryUser);
+        } catch (UserAlreadyExistsException e){
+            printer.printLine(e.getMessage());
+        }
+    }
+
+    private void printUsers(){
+        printer.printUsers(library.getUsers().values());
+    }
+
+//    private Publication[] getSortedPublications(){
+//        Publication[] publications = library.getPublications();
+//        Arrays.sort(publications, new AlphabeticalTitleComparator());
+//        return publications;
+//    }
+
+    private void deleteMagazome(){
+        try {
+            Magazine magazine = dataReader.readAndCreateMagazine();
+            if (library.removePublication(magazine))
+                printer.printLine("Usunięto magazyn");
+            else printer.printLine("Brak wskazanego magazynu");
+        } catch (InputMismatchException e){
+            printer.printLine("Nie udało się utworzyć magazynu, niepoprawne dane.");
+        }
+    }
+
+    private void deleteBook(){
+        try{
+            Book book = dataReader.readAndCreateBook();
+            if (library.removePublication(book))
+                printer.printLine("Usunięto książkę.");
+            else
+                printer.printLine("Brak wskazanej książki.");
+        } catch (InputMismatchException e){
+            printer.printLine("Nie udało się utworzyć książki, niepoprawne dane.");
+        }
     }
 
     private void exit(){
@@ -134,7 +185,11 @@ public class LibraryControl {
         ADD_BOOK(1,"Dodawanie książek"),
         ADD_MAGAZINE(2,"Dodawanie magazynu/gazety"),
         PRINT_BOOKS(3,"Wyświetlenie dostępnych książek"),
-        PRINT_MAGAZINES(4, "Wyświetlenie dostępnych magazynów/gazet");
+        PRINT_MAGAZINES(4, "Wyświetlenie dostępnych magazynów/gazet"),
+        DELETE_BOOK(5, "Usuń książkę"),
+        DELETE_MAGAZINE(6, "Usuń magazyn"),
+        ADD_USER(7, "Dodaj czytelnika"),
+        PRINT_USERS(8, "Wyświetl czytelników");
 
         private int value;
         private String description;
